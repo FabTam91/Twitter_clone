@@ -1,0 +1,18 @@
+<form method="POST">
+    <h4>Forgot Your Passwrod?</h4>
+    <p>Please enter the email address you'd like your password reset information sent to.</p>
+    <% if (typeof pwresetSuccess !== 'undefined') { %>
+        <div class="alert alert-success">
+            Email notification has been sent out.
+        </div>
+    <% } %>
+    <%- include('errors')%>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+        <label for="email">Email address</label>
+    </div>
+    <div class="d-grid gap-2">
+        <input type="submit" class="btn btn-primary d-block" value="Request reset link"/>
+        <a href="/" class="btn btn-link">Back to Login</a>
+    </div>
+</form>

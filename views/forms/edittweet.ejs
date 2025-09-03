@@ -1,0 +1,31 @@
+<div class="col-12 col-md-6">
+    <form method="POST" enctype="multipart/form-data">
+        <h3>Edit Tweet</h3>
+        <div class="form-floating mb-3 mt-4">
+            <textarea class="form-control" placeholder="Twitter text" id="text" name="text" style="height: 300px"><%= tweet.text %></textarea>
+            <label for="text">Text</label>
+        </div>
+</div>
+<div class="col-12 col-md-6">
+    <div class="row">
+        <h5>Images</h5>
+        <% for (let i = 0; i < tweet.images.length; i++){ %>
+            <%- include('../imgcard', {img: tweet.images[i], tweetid: tweet.id})%>
+        <% } %>
+    </div>
+    <div class="row">
+        <div class="mb-3">
+            <label for="files" class="form-label">Add new images</label>
+            <input class="form-control" type="file" id="files" multiple name="images">
+        </div>
+    </div>
+</div>
+<div class="col-12 col-md-6 mb-3">
+    <div class="row">
+        <div class="d-flex justify-content-between gap-2">
+            <input type="submit" class="btn btn-primary btn-lg px-5" value="Save" style="width: 500px;"/>
+            <a href="/" class="btn btn-danger d-block" style="width: 100px;">Cancel</a>
+        </div>
+    </div>
+</div>
+</form>

@@ -1,0 +1,17 @@
+<form method="POST">
+    <h4>Change password</h4>
+    <% if (typeof pwModSuccess !== 'undefined') { %>
+        <div class="alert alert-success">
+            Password has been successfully changed!
+        </div>
+    <% } %>
+    <%- include('errors')%>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="password" placeholder="****" name="password">
+        <label for="password">New password</label>
+    </div>
+    <div class="d-grid gap-2">
+        <input type="submit" class="btn btn-primary d-block" value="Submit"/>
+        <a href="/" class="btn btn-link">Back to Login</a>
+    </div>
+</form>

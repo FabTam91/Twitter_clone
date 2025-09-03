@@ -1,0 +1,60 @@
+<div class="col-12 mb-12">
+  <div class="card" style="width: 100%; margin: 10px;">
+    <div class="card-body">
+      <div class="d-flex align-items-center mb-2">
+        <div style="width: 40px; height: 40px; overflow: hidden; border-radius: 50%; margin-right: 10px;">
+          <img src="/uploads/<%= tweet.profileimg %>" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <% if (tweet.username !== tweet.author){ %>
+          <div>
+            <h4 class="card-title mb-0" 
+                style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              <%= tweet.username %>
+            </h4>
+            <small><i>(Retweet, original author: <%= tweet.author %>)</i></small>
+          </div>
+        <% } else { %>
+          <h4 class="card-title mb-0" 
+              style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <%= tweet.username %>
+          </h4>
+        <% } %>
+      </div>
+      <br>
+      <p class="card-text" style="white-space: pre-line;"><%= tweet.text %></p>
+    </div>
+
+    <div style="display: flex; gap: 10px; margin: 15px;">
+      <% for (let i = 0; i < tweet.images.length; i++){ %>
+        <div class="card" style=" border: none; box-shadow: none;">
+            <img src="/uploads/<%=tweet.images[i]%>" class="card-img-top"
+            style="max-width: 300px; max-height: 300px; width: auto; height: auto; object-fit: contain; border-radius: 8px;">
+        </div>
+      <% } %>
+    </div>
+
+
+    <% if (typeof loggedInUser !== 'undefined' && user.username !== tweet.username && user.followedUsers.includes(tweet.username)) {%>
+      <div class="d-flex justify-content-end gap-2 m-2">
+          <a href="/tweet/<%=tweet.id%>/unfollowuser" class="btn btn-danger d-block">Unfollow user</a>
+          <a href="/tweet/<%=tweet.id%>/retweet" class="btn btn-primary d-block">Retweet</a>
+      </div> 
+    <% } else if (typeof loggedInUser !== 'undefined' && user.username !== tweet.username) {%>
+      <div class="d-flex justify-content-end gap-2 m-2">
+          <a href="/tweet/<%=tweet.id%>/followuser" class="btn btn-primary d-block">Follow user</a>
+          <a href="/tweet/<%=tweet.id%>/retweet" class="btn btn-primary d-block">Retweet</a>
+      </div> 
+    <% } %>
+
+    <% if (typeof mytweets !== 'undefined' && user.username === tweet.author) {%>
+      <div class="d-flex justify-content-end gap-2 m-2">
+          <a href="/tweet/<%=tweet.id%>/edit" class="btn btn-secondary d-block">Edit</a>
+          <a href="/tweet/<%=tweet.id%>/del" class="btn btn-danger d-block">Delete</a>
+      </div> 
+    <% } else if (typeof mytweets !== 'undefined') {%>
+      <div class="d-flex justify-content-end gap-2 m-2">
+          <a href="/tweet/<%=tweet.id%>/del" class="btn btn-danger d-block">Delete</a>
+      </div> 
+    <% } %>
+  </div>
+</div>

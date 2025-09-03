@@ -1,0 +1,17 @@
+<form method="POST">
+    <h4>Login</h4>
+    <%- include('errors')%>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+        <label for="email">Email address</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="password" placeholder="****" name="password">
+        <label for="password">Password</label>
+    </div>
+    <div class="d-grid gap-2">
+        <input type="submit" class="btn btn-primary d-block" value="Login"/>
+        <a href="/forgotpw" class="btn btn-link">Forgot password?</a>
+        <a href="/reg" class="btn btn-link">Register</a>
+    </div>
+</form>

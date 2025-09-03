@@ -1,0 +1,19 @@
+<div class="col-12">
+    <form method="POST" enctype="multipart/form-data">
+        <h4>Create new Tweet</h4>
+        <div class="form-floating mb-3 mt-4">
+            <textarea class="form-control" placeholder="Twitter text." id="text" name="text" style="height: 150px"></textarea>
+            <label for="text">Text</label>
+        </div>
+        <div class="mb-3">
+            <label for="files" class="form-label">Add Images</label>
+            <input class="form-control" type="file" id="files" multiple name="images" accept="image/*">
+        </div>
+        <div class="d-flex justify-content-between gap-2">
+            <input type="submit" class="btn btn-primary btn-lg px-5" value="Tweet" style="width: 500px;"/>
+            <a href="/" class="btn btn-danger d-block" style="width: 100px;">Cancel</a>
+        </div>
+    </form>
+</div>
+
+

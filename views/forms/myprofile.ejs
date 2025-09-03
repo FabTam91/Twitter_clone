@@ -1,0 +1,33 @@
+<form method="POST" enctype="multipart/form-data">
+    <h4>My Profile</h4>
+    <% if (typeof pwModSuccess !== 'undefined') { %>
+        <div class="alert alert-success">
+            Profile has been successfully updated!
+        </div>
+    <% } %>
+    <%- include('errors')%>
+    <div class="form-floating mb-3 mt-4">
+        <input type="text" class="form-control" id="name" placeholder="username" name="name" value="<%= user.username %>" readonly>
+        <label for="name">Username</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" value="<%= user.email %>" readonly>
+        <label for="email">Email address</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="password" placeholder="****" name="password" value="<%= user.password %>">
+        <label for="password">Password</label>
+    </div>
+    <div class="mb-3">
+        <label for="profile" class="form-label"><b>Profile image</b></label>
+        <input class="form-control" type="file" id="profile" name="profile">
+    </div>
+    <div class="mb-3" style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%;">
+        <img src="/uploads/<%= user.profileimg ? user.profileimg : 'placeholder.jpg' %>"
+            style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <div class="d-grid gap-2">
+        <input type="submit" class="btn btn-primary d-block" value="Save"/>
+    </div>
+</form>

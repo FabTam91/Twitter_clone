@@ -1,0 +1,19 @@
+<%- include ('header') %>
+<%- include ('navbar_user') %>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <h4>My Tweets</h4><br><br>
+                <% if (mytweets.length === 0){ %>
+                    <p>You haven't posted any tweets yet. Start by creating your first one!</p>
+                <% } %>
+                <% for (let i = mytweets.length - 1; i >= 0; i--){ %>
+                    <%- include('tweetcard', {mytweets:true, tweet: mytweets[i]})%>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ('footer') %>

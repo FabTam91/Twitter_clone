@@ -1,0 +1,19 @@
+<%- include ('header') %>
+<%- include ('navbar_user') %>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <h4>Tweets from users you follow</h4><br><br>
+                <% if (tweets.length === 0){ %>
+                    <p>You're not following anyone yet. Follow other users to see their tweets here.</p>
+                <% } %>
+                <% for (let i = 0; i < tweets.length; i++){ %>
+                    <%- include('tweetcard', {loggedInUser: true, tweet: tweets[i]})%>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ('footer') %>
